@@ -6,6 +6,18 @@
 #   url: {homepage_of_author}
 # -------------------------------------
 
+# author setting 글 작성할 때 선택할 author 설정해두는 부분
+# 6명 다 세팅 해놓으면 될 것 같아요 !
+
+ym:
+  name: Yoonmin Kim
+  url: https://github.com/yoon828
+
+
+
+
+
+## 예시 코드
 cotes:
   name: Cotes Chung
   twitter: cotes2020
