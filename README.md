@@ -92,3 +92,11 @@ This project is published under [MIT License][license].
 [jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
 [ko-fi]: https://ko-fi.com/coteschung/
 [donation]: https://sponsor.cotes.page/
+
+## Extension
+
+Markdown All in One
+v3.5.1
+
+markdownlint
+v0.48.1
