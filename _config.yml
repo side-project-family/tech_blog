@@ -26,7 +26,7 @@ description: >- # used by seo meta and the atom feed
 url: "https://side-project-family.github.io"
 
 github:
-  username: Side Project Family # change to your github username
+  username: side-project-family # change to your github username
 
 twitter:
   username: Side Project Family # change to your twitter username
