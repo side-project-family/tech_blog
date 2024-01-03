@@ -74,7 +74,7 @@ HCL은 JSON이나 YAML과 같은 다른 데이터 구조 표현보다 사람이 
 
 ## AWS Provider 연결
 
-```hcl
+```
 provider "aws" {
   region = "ap-northeast-2" # 서울 리전 코드
   access_key = "YOUR_ACCESS_KEY" # 권장하지 않음
@@ -89,9 +89,9 @@ provider "aws" {
   region = "ap-northeast-2"
 }
 
-# var 사용해서 전역으로 관리 필요
 "aws_s3_bucket"는 클라우드 프로바이더가 제공하는 서비스의 이름이며, "side_project_family_static_web"은 생성되는 서비스의 이름 입니다. (표시되는 이름 x)
 
+```
 resource "aws_s3_bucket" "side_project_family_static_web" {
   bucket = "sf.static.web" # 실제 생성되는 버켓의 이름
 
@@ -104,8 +104,9 @@ resource "aws_s3_bucket" "side_project_family_static_web" {
     error_document = "index.html" # error page 설정
   }
 }
+```
 
-# acl 설정
+## acl 설정
 ACL(Access Control List)은 버킷 및 객체(파일)에 대한 액세스 권한을 관리하는 데 사용되는 설정입니다. 각각의 S3 버킷과 객체에는 고유한 ACL이 적용됩니다.
 S3의 ACL은 주로 다음과 같은 권한을 관리합니다.
 
@@ -123,6 +124,7 @@ ACL은 특정 사용자, 그룹, 혹은 모든 사용자에 대한 권한을 부
 
 Terraform을 사용하면 aws_s3_bucket 및 aws_s3_bucket_object 리소스에서 acl 속성을 설정하여 S3 버킷 및 객체의 ACL을 정의할 수 있습니다.
 
+```
 resource "aws_s3_bucket_ownership_controls" "side_project_family_static_web" {
   bucket = "sf.static.web"
   rule {
@@ -148,10 +150,12 @@ resource "aws_s3_bucket_acl" "side_project_family_static_web" {
   bucket = "sf.static.web"
   acl    = "public-read"
 }
+```
 
-# S3 bucket policy
+## S3 bucket policy
 정적페이지로 호스팅을 하기위해서 퍼블릭환경에서 접속할 수 있는 정책을 추가합니다.
 
+```
 resource "aws_s3_bucket_policy" "bucket-policy" {
   bucket = "sf.static.web"
 
@@ -175,13 +179,16 @@ resource "aws_s3_bucket_policy" "bucket-policy" {
 }
 POLICY
 }
+```
 
+## s3 url
+인프라 적용 후 버켓으로 바로 이동가능하도록 url 출력
 
-# s3 url
+```
 output "side_project_family_static_web_url" {
   value = "http://sf.static.web.s3-website.ap-northeast-2.amazonaws.com"
 }
-
+```
 
 ## 마치며
 
