@@ -37,7 +37,7 @@ $ brew tap hashicorp/tap
 $ brew install hashicorp/tap/terraform
 ```
 
-> Apple Chip을 사용하는 경우는 brew 설치 시 아래 설정을 추가해주세요. [user]에는 현재 유저의 정보를 입력합니다.
+> 혹시 brew가 설치되어있지 않으며, Apple Chip을 사용하는 경우는 brew 설치 시 아래 설정을 추가해주세요. [user]에는 현재 유저의 정보를 입력합니다.
 {: .prompt-tip }
 
 ```shell
@@ -87,10 +87,6 @@ provider "aws" {
 {: .prompt-tip }
 
 ## S3 버켓 생성하기
-provider "aws" {
-  region = "ap-northeast-2"
-}
-
 "aws_s3_bucket"는 클라우드 프로바이더가 제공하는 서비스의 이름이며, "side_project_family_static_web"은 생성되는 서비스의 이름 입니다. (표시되는 이름 x)
 
 ```
