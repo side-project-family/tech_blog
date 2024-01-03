@@ -7,7 +7,7 @@ tags: [writing]
 render_with_liquid: false
 ---
 
->  테라폼의 설치 및 환경구성하며, AWS Provider 설정과 API GW, Lambda, S3 연동을 다루는 글 입니다.
+>  테라폼의 설치 및 환경구성하며, AWS Provider 설정 S3 정적페이지 생성을 다루는 글 입니다.
 {: .prompt-info }
 
 ## Terraform 이란 ?
@@ -37,7 +37,8 @@ $ brew tap hashicorp/tap
 $ brew install hashicorp/tap/terraform
 ```
 
-> Apple Chip을 사용하는 경우는 brew 설치 시 아래 설정을 추가해주세요. [user]에는 현재 유저의 정보를 입력합니다. {: .prompt-tip }
+> Apple Chip을 사용하는 경우는 brew 설치 시 아래 설정을 추가해주세요. [user]에는 현재 유저의 정보를 입력합니다.
+{: .prompt-tip }
 
 ```shell
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/[user]/.zprofile
@@ -82,7 +83,8 @@ provider "aws" {
 }
 ```
 
-> AWS 프로바이더 키를 등록하는 방법은 세 가지가 있습니다. 첫 번째로 환경 변수를 사용하는 방법이 있습니다. 두 번쨰로 AWS CLI를 사용하여 키와 비밀 키를 입력해두면 terraform init에서 읽어오게 됩니다. 이 방법을 가장 많이 사용합니다. 마지막 방법으로는 terraform 코드에 직접 입력하는 방법입니다. 프로바이더 정의시 키를 입력합니다. 이 방법은 보안이슈로 권장하지않습니다. {: .prompt-tip }
+> AWS 프로바이더 키를 등록하는 방법은 세 가지가 있습니다. 첫 번째로 환경 변수를 사용하는 방법이 있습니다. 두 번쨰로 AWS CLI를 사용하여 키와 비밀 키를 입력해두면 terraform init에서 읽어오게 됩니다. 이 방법을 가장 많이 사용합니다. 마지막 방법으로는 terraform 코드에 직접 입력하는 방법입니다. 프로바이더 정의시 키를 입력합니다. 이 방법은 보안이슈로 권장하지않습니다.
+{: .prompt-tip }
 
 ## S3 버켓 생성하기
 provider "aws" {
@@ -106,7 +108,7 @@ resource "aws_s3_bucket" "side_project_family_static_web" {
 }
 ```
 
-## acl 설정
+## ACL(Access Control List) 설정
 ACL(Access Control List)은 버킷 및 객체(파일)에 대한 액세스 권한을 관리하는 데 사용되는 설정입니다. 각각의 S3 버킷과 객체에는 고유한 ACL이 적용됩니다.
 S3의 ACL은 주로 다음과 같은 권한을 관리합니다.
 
