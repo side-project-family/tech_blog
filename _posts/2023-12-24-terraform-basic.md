@@ -1,7 +1,7 @@
 ---
 title: 테라폼 설치와 AWS 사용해보기
 author: 종호
-date: 2024-1-4 20:25:00 +0900
+date: 2024-1-3 20:25:00 +0900
 categories: [Terraform, AWS, S3, IaC]
 tags: [writing]
 render_with_liquid: false
